@@ -24,4 +24,5 @@ public class Persona implements Serializable {
     public float altura;
     public int edad;
     public float imc;
+
 }
