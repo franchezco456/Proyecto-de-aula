@@ -6,6 +6,8 @@ package com.mycompany.proyecto_de_aula_alexi_franky_jericop.ventanas;
 
 import com.mycompany.proyecto_de_aula_alexi_franky_jericop.datos.Persona;
 import com.mycompany.proyecto_de_aula_alexi_franky_jericop.persistencia.Almacenamiento;
+import java.awt.Image;
+import java.awt.Toolkit;
 
 
 
@@ -29,7 +31,7 @@ public class IMC extends javax.swing.JFrame {
      */
    public IMC() {
         initComponents();
-        
+       
         
     }
 
@@ -467,7 +469,6 @@ public class IMC extends javax.swing.JFrame {
     private void ELIMINARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELIMINARActionPerformed
        try {
            Almacenamiento.eliminar(id1.getText());
-           limpiarActionPerformed(evt);
        } catch (Exception ex) {
            JOptionPane.showMessageDialog(this,ex.getMessage() );
        }
