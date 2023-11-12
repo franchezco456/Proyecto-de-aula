@@ -12,6 +12,9 @@ import java.util.HashMap;
  * @author FRANKY F
  */
 public class Persona implements Serializable {
+
+    public Persona(String id1, String nombre1, String sexo1, String estado1, float peso1, float altura1, int edad1, float imc1) {
+    }
     public static HashMap <String,Persona> personasBd = new HashMap<>();
     public String id;
     public String nombre;

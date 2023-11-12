@@ -293,6 +293,9 @@
           </Events>
         </Component>
         <Component class="javax.swing.JTextField" name="sexo">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+          </Properties>
         </Component>
         <Component class="javax.swing.JButton" name="limpiar">
           <Properties>

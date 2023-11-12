@@ -5,13 +5,16 @@
 package com.mycompany.proyecto_de_aula_alexi_franky_jericop.persistencia;
 
 import com.mycompany.proyecto_de_aula_alexi_franky_jericop.datos.Persona;
+import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.util.HashMap;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -56,4 +59,27 @@ public class Almacenamiento {
          HashMap<String,Persona> personasBd = (HashMap<String,Persona>) lector.readObject();
        return personasBd;
     }
-}
+    public static void eliminar(String datico) throws Exception {
+        String eliminar=datico;
+        HashMap<String,Persona> bd=Persona.personasBd;
+    String rutaCompleta = rutaBase + File.separator + nombreArvhivo;
+    File archivo = new File(rutaCompleta);
+    try (ObjectInputStream lector = new ObjectInputStream(new FileInputStream(archivo))) {
+            HashMap<String, Persona> datosExist = (HashMap<String, Persona>) lector.readObject();
+            bd.putAll(datosExist); // Combinar datos existentes con los nuevos
+            if(bd.containsKey(eliminar)){
+                bd.remove(eliminar);
+                JOptionPane.showMessageDialog(null, "eliminado exitosamente");
+            }else{
+                JOptionPane.showMessageDialog(null, "Persona no ingresada");
+            }
+        } catch (ClassNotFoundException e) {
+        }
+    // Guardar los datos actualizados (incluyendo objetos Persona existentes y nuevos)
+    try (ObjectOutputStream escritor = new ObjectOutputStream(new FileOutputStream(archivo))) {
+        escritor.writeObject(bd);
+    }
+    }
+  }
+    
+

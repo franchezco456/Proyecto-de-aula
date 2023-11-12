@@ -139,6 +139,8 @@ public class IMC extends javax.swing.JFrame {
             }
         });
 
+        sexo.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+
         limpiar.setFont(new java.awt.Font("Berlin Sans FB Demi", 3, 18)); // NOI18N
         limpiar.setText("LIMPIAR");
         limpiar.addActionListener(new java.awt.event.ActionListener() {
@@ -340,7 +342,7 @@ public class IMC extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "La persona con el id "+id + " ya existe, si desea cambiar los datos ingresados presione editar");
             return;
         }
-        Persona p = new Persona();
+        Persona p = new Persona(id, nombre, sex, status, peso, altura, edad, imc);
         p.id=id;
         p.nombre=nombre;
         p.sexo=sex;
@@ -464,7 +466,11 @@ public class IMC extends javax.swing.JFrame {
     }//GEN-LAST:event_limpiarActionPerformed
 
     private void ELIMINARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ELIMINARActionPerformed
-        // TODO add your handling code here:
+       try {
+           Almacenamiento.eliminar(id1.getText());
+       } catch (Exception ex) {
+           JOptionPane.showMessageDialog(this,ex.getMessage() );
+       }
     }//GEN-LAST:event_ELIMINARActionPerformed
 
     /**
