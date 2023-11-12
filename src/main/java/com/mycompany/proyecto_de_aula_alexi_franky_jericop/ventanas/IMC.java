@@ -448,7 +448,8 @@ public class IMC extends javax.swing.JFrame {
     }//GEN-LAST:event_buscarActionPerformed
 
     private void editarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editarActionPerformed
-        // TODO add your handling code here:
+        buscarActionPerformed(evt);
+        ELIMINARActionPerformed(evt);
     }//GEN-LAST:event_editarActionPerformed
 
     private void tablaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tablaActionPerformed
